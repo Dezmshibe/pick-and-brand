@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Services – Pick & Brand Print Shop{% endblock %}
+{% block content %}
+<section class="first">
+  <h2>What we print</h2>
+  <div class="grid">
+    {% for title, text in services %}
+    <div class="item"><h3>{{ title }}</h3><p>{{ text }}</p></div>
+    {% endfor %}
+  </div>
+  <p style="margin-top:36px"><a class="btn" href="{{ url_for('quote') }}">Price your job</a></p>
+</section>
+{% endblock %}

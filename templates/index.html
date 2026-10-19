@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="hero">
+  <h1 class="over" aria-label="Pick & Brand.">
+    <span class="l1" aria-hidden="true">Pick & Brand.</span>
+    <span class="l2" aria-hidden="true">Pick & Brand.</span>
+    <span class="l3" aria-hidden="true">Pick & Brand.</span>
+    <span class="k">Pick & Brand.</span>
+  </h1>
+  <p>Business cards, posters, packaging and books, printed in small runs with colors checked against your file before the press starts.</p>
+  <a class="btn" href="{{ url_for('quote') }}">Get a price</a>
+  <a class="btn alt" href="{{ url_for('services') }}">See what we print</a>
+</div>
+<section>
+  <h2>What we print</h2>
+  <div class="grid">
+    {% for title, text in services %}
+    <div class="item"><h3>{{ title }}</h3><p>{{ text }}</p></div>
+    {% endfor %}
+  </div>
+</section>
+<section>
+  <h2>How an order works</h2>
+  <ol>
+    <li><b>Send your file</b>PDF, or tell us what you want and we'll set it up.</li>
+    <li><b>Check the proof</b>We send a digital proof and a printed color swatch within a day.</li>
+    <li><b>We print and trim</b>Small runs are usually ready in two working days.</li>
+    <li><b>Pick up or delivery</b>Collect from the shop or have it couriered.</li>
+  </ol>
+</section>
+{% endblock %}

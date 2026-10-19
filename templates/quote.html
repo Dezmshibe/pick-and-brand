@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Price – Pick & Brand Print Shop{% endblock %}
+{% block content %}
+<section class="first two">
+  <div>
+    <h2>Estimate your job</h2>
+    <p>Pick a product and a quantity to see a starting price. Final quotes depend on your artwork and paper.</p>
+  </div>
+  <form class="card" method="post">
+    <label for="product">Product</label>
+    <select id="product" name="product">
+      {% for key, p in products.items() %}
+      <option value="{{ key }}" {% if result and result.key == key %}selected{% endif %}>{{ p.name }}</option>
+      {% endfor %}
+    </select>
+    <label for="qty">Quantity</label>
+    <input id="qty" name="qty" type="number" min="1" value="{{ result.qty if result else 250 }}">
+    <p style="margin-top:18px"><button class="btn" type="submit">Calculate price</button></p>
+    {% if result %}
+    <div class="price" role="status">${{ "%.2f"|format(result.total) }}</div>
+    <p class="note">
+      {{ result.qty }} × {{ result.name }}.
+      {% if result.discount %}{{ result.discount }}% volume discount applied.{% else %}Order 100 or more for a volume discount.{% endif %}
+    </p>
+    <a href="{{ url_for('contact') }}">Request this job</a>
+    {% endif %}
+  </form>
+</section>
+{% endblock %}

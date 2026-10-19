@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Pick & Brand Print Shop{% endblock %}</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;800&family=Instrument+Sans:wght@400;600&display=swap">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="logo" href="{{ url_for('index') }}">Pick & Brand</a>
+    <nav>
+      {% for endpoint, label in [('services','Services'),('quote','Price'),('contact','Contact')] %}
+      <a href="{{ url_for(endpoint) }}" {% if request.endpoint == endpoint %}aria-current="page"{% endif %}>{{ label }}</a>
+      {% endfor %}
+    </nav>
+  </header>
+  <main>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% for category, text in messages %}
+        <p class="flash {{ category }}" role="status">{{ text }}</p>
+      {% endfor %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </main>
+  <footer>
+    <strong>Pick & Brand Print Shop.</strong> Printing that lines up.<br>
+    12 Foundry Lane, Unit 4. Mon to Fri, 8:00 to 17:30.
+  </footer>
+</div>
+</body>
+</html>
