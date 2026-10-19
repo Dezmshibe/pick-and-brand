@@ -11,10 +11,10 @@ MESSAGES_FILE = Path(__file__).parent / "messages.csv"
 
 # Example prices for the concept. Replace with your real price list.
 PRODUCTS = {
-    "cards":   {"name": "Business cards (per card)", "price": 0.12},
-    "posters": {"name": "A3 poster (per poster)",    "price": 1.80},
-    "stickers": {"name": "Sticker, 5 cm (per sticker)", "price": 0.45},
-    "zines":   {"name": "Zine, 24 pages (per copy)", "price": 4.20},
+    "cards":   {"name": "Business cards (per card)", "price": 2.50},
+    "posters": {"name": "A3 poster (per poster)",    "price": 35.00},
+    "stickers": {"name": "Sticker, 5 cm (per sticker)", "price": 4.50},
+    "zines":   {"name": "Zine, 24 pages (per copy)", "price": 65.00},
 }
 
 SERVICES = [
