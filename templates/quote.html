@@ -17,7 +17,7 @@
     <input id="qty" name="qty" type="number" min="1" value="{{ result.qty if result else 250 }}">
     <p style="margin-top:18px"><button class="btn" type="submit">Calculate price</button></p>
     {% if result %}
-    <div class="price" role="status">${{ "%.2f"|format(result.total) }}</div>
+    <div class="price" role="status">R{{ "%.2f"|format(result.total) }}</div>
     <p class="note">
       {{ result.qty }} × {{ result.name }}.
       {% if result.discount %}{{ result.discount }}% volume discount applied.{% else %}Order 100 or more for a volume discount.{% endif %}
